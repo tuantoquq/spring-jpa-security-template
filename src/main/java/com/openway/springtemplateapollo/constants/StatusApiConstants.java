@@ -7,6 +7,7 @@ public class StatusApiConstants {
     public static final StatusApiConstants OTHER_ERROR;
     public static final StatusApiConstants INVALID_PARAM;
     public static final StatusApiConstants TIMEOUT;
+    public static final StatusApiConstants UNAUTHORIZED;
     private StatusApiConstants.ResponseClass responseClass;
     private int errorCode;
     private int httpStatusCode;
@@ -54,8 +55,9 @@ public class StatusApiConstants {
     static {
         SUCCESS = new StatusApiConstants(StatusApiConstants.ResponseClass.INFORMATION, 0, HttpStatus.OK.value(),"Success");
         OTHER_ERROR = new StatusApiConstants(ResponseClass.ERROR, 1, HttpStatus.OK.value(),"Other Error");
-        INVALID_PARAM = new StatusApiConstants(StatusApiConstants.ResponseClass.ERROR, 4, HttpStatus.BAD_REQUEST.value(),"Invalid Parameters or Values");
-        TIMEOUT = new StatusApiConstants(StatusApiConstants.ResponseClass.ERROR, 5, HttpStatus.GATEWAY_TIMEOUT.value(),"Time-out at vendor system");
+        INVALID_PARAM = new StatusApiConstants(StatusApiConstants.ResponseClass.ERROR, 2, HttpStatus.BAD_REQUEST.value(),"Invalid Parameters or Values");
+        TIMEOUT = new StatusApiConstants(StatusApiConstants.ResponseClass.ERROR, 3, HttpStatus.GATEWAY_TIMEOUT.value(),"Time-out at vendor system");
+        UNAUTHORIZED = new StatusApiConstants(StatusApiConstants.ResponseClass.ERROR, 4, HttpStatus.UNAUTHORIZED.value(),"Token has been expired");
     }
 
     public static enum ResponseClass {
